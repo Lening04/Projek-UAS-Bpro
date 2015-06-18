@@ -1,0 +1,93 @@
+import java.util.*;
+import java.io.*;
+public class menu
+{
+	public static void main (String [] argx)throws IOException
+	{BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int pilih=0;
+		boolean ceklogin = false;
+		Vector<String> username = new Vector<String>();
+		Vector<String> password = new Vector<String>();
+		username.add("kris");
+		password.add("123");
+		do{
+		System.out.print("Masukan username anda : ");
+			String id = br.readLine();
+			System.out.print("Masukan password anda : ");
+			String pass = br.readLine();
+			if (username.contains(id) && password.contains(pass)) {
+				if (username.indexOf(id) == password.indexOf(pass)) {
+					int urut = username.indexOf(id);
+					
+						int pil = 0;
+						ceklogin = true;
+		
+		do
+		{
+			System.out.println();
+			System.out.println("--------------------------------");
+			System.out.println("            Menu Utama         ");
+			System.out.println("       TOKO Buku Novel	");
+			System.out.println("--------------------------------");
+			System.out.println("1. Tambah Transaksi Penjualan");
+			System.out.println("2. Maintenance Data Novel");
+			System.out.println("3. Lihat Data Novel");
+			System.out.println("4. Omset Penjaulan Novel");
+			System.out.println("5. Exit");
+			System.out.print  ("Masukkan Pilihan Anda (1-5): ");
+			pilih =Integer.parseInt(br.readLine());
+			switch(pilih)
+			{
+				case 1:
+					jual.transaksi();break;
+				
+				case 2:
+					novel.menunovel();break;
+				case 3:
+				int i;
+				System.out.println("=====================================================================");
+				System.out.println("kode novel\t judul novel\t\t Harga novel");
+				System.out.println("=====================================================================");
+				for (i = 0; i < novel.novelkode.size(); i++) {
+					System.out.print(novel.novelkode.elementAt(i).toString() + "\t\t "+ novel.novelnama.elementAt(i) + "\t\t "+ novel.novelharga.elementAt(i));
+					System.out.println("");
+				}break;
+
+				case 4:
+				int z=0;
+				int y=0;
+				int total = 0;
+				for(int j = 0 ; j<jual.kdtrans.size(); j++){
+				System.out.println("Kode Transaksi : "+jual.kdtrans.elementAt(j));
+				System.out.println("=====================================================================");
+				System.out.println("kode novel\tjudul novel\t\t\tjumlah\tSatuan\tHarga");
+				System.out.println("=====================================================================");
+								
+				y=y+Integer.parseInt(jual.jualtrans.elementAt(j).toString());
+				while(z<y){
+				System.out.println(jual.kodejual.elementAt(z)+"\t\t"+jual.namajual.elementAt(z)+"\t\t\t\t"+jual.qjual.elementAt(z)+"\t"+jual.hargajual.elementAt(z)+"\t"+jual.subjual.elementAt(z));
+				z++;
+				}
+				System.out.println("=====================================================================");
+				}
+				for(int k = 0 ; k<jual.subjual.size(); k++){
+				total += Integer.parseInt(jual.subjual.elementAt(k).toString());
+				}
+				System.out.println("Total Omset : "+total);
+				System.out.println();
+			
+				case 5:
+					
+				default:break;
+			}
+		}
+		while(pilih<5);
+
+
+				} else {
+					System.out.println("anda tidak dapat masuk !");}
+			} else {
+				System.out.println("anda tidak dapat masuk !");}
+		} while (ceklogin =true);
+	}
+}
