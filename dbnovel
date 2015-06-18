@@ -1,0 +1,42 @@
+public class dbnovel
+{
+	public static final String []kodenovel={"N01","N02","N03","N04","N05"};
+	public static final String []namanovel={"Novel1","Novel2","Novel3","Novel4","Novel5"};
+	public static final String []harganovel={"1000","2000","3000","4000","5000"};
+	
+	
+	private String kdnovel;
+	private String nmnovel;
+	private double hrnovel;
+
+	public dbnovel (String kdnovel,String nmnovel,double hrnovel)
+	{
+		this.kdnovel = kdnovel;
+		this.nmnovel = nmnovel;
+		this.hrnovel = hrnovel;
+	
+	}
+	public String getkdnovel()
+	{
+		return kdnovel;
+	}
+	public String getnmnovel()
+	{
+		return nmnovel;
+	}
+	public double gethrnovel()
+	{
+		return hrnovel;
+	}
+	
+	
+	
+	public void sethrnovel(double hrnovel)
+	{
+		this.hrnovel = hrnovel;
+	}
+	public void setnmnovel(String nmnovel)
+	{
+		this.nmnovel = nmnovel;
+	}
+}
