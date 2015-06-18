@@ -1,0 +1,111 @@
+import java.util.*;
+import java.io.*;
+
+public class jual
+{		public static Scanner k = new Scanner(System.in);
+		public static final Vector<String>kodejual = new Vector<String>();
+		public static final Vector<String>namajual = new Vector<String>();
+		public static final Vector qjual = new Vector();
+		public static final Vector hargajual = new Vector();
+		public static final Vector subjual = new Vector();
+		public static final Vector kdtrans = new Vector();
+		public static final Vector jualtrans = new Vector();
+		
+		public static void transaksi()throws IOException 
+		{BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Vector<String>kode = new Vector<String>(novel.novelkode);
+		Vector<String>judul = new Vector<String>(novel.novelnama);
+		Vector<String>harga = new Vector<String>(novel.novelharga);
+
+		boolean rr = false;
+		int urut = 0;
+		int pil = 0;
+		int rk = 0;
+		int a=0;
+		int idtr = 0;
+		do{
+		System.out.println("------------------------------------------------");
+		System.out.println("                   Menu Penjualan               ");
+		System.out.println("------------------------------------------------");
+		System.out.println("1. Transaksi");
+		System.out.println("2. Omset");
+		System.out.println("3. Log Out");
+		System.out.println("============================================");
+		System.out.print("Masukkan menu pilihan anda (1-2) : ");
+		pil = Integer.parseInt(br.readLine());
+		switch(pil){
+			case 1:
+			
+			idtr= kdtrans.size()+1;
+			for(int i = 0; i<kdtrans.size();i++){
+				if(idtr == Integer.parseInt(kdtrans.elementAt(i).toString())){
+				idtr++;
+				}
+			}
+			kdtrans.add(idtr);
+			System.out.println("Kode Transaksi : "+idtr);
+				int cek=0;
+				do{
+				System.out.print("Masukan kode novel : ");
+				String kdnov = br.readLine();
+				if(kode.contains(kdnov)){
+					urut = kode.indexOf(kdnov);
+					System.out.println("judul novel : "+judul.elementAt(urut));
+					System.out.println("Harga novel : "+harga.elementAt(urut));
+					System.out.print("Jumlah yang ingin dibeli : ");
+					int jml =Integer.parseInt(br.readLine());
+					rk = jml * Integer.parseInt(harga.elementAt(urut));
+					kodejual.add(kdnov);
+					namajual.add(judul.elementAt(urut));
+					qjual.add(jml);
+					hargajual.add(harga.elementAt(urut));
+					subjual.add(rk);
+					cek++;
+					}else{
+					rr = false;
+					System.out.println("kode novel "+kdnov+" tidak ditemukan!");
+					}
+					System.out.print("Transaksi lagi ?[Y/N] : ");
+					String again = br.readLine();
+					if(again.equalsIgnoreCase("y")){
+					rr = false;
+					}else{
+					rr = true;
+					System.out.println("Terima kasih telah berbelanja.");
+					jualtrans.add(cek);
+					}
+				}while(rr==false);
+			break;
+			
+			case 2 :
+			
+				int z=0;
+				int y=0;
+				int total = 0;
+				for(int j = 0 ; j<kdtrans.size(); j++){
+				System.out.println("Kode Transaksi : "+kdtrans.elementAt(j));
+				System.out.println("=====================================================================");
+				System.out.println("kode novel\tjudul novel\t\t\tjumlah\tSatuan\tHarga");
+				System.out.println("=====================================================================");
+								
+				y=y+Integer.parseInt(jualtrans.elementAt(j).toString());
+				while(z<y){
+				System.out.println(kodejual.elementAt(z)+"\t\t"+namajual.elementAt(z)+"\t\t\t\t"+qjual.elementAt(z)+"\t"+hargajual.elementAt(z)+"\t"+subjual.elementAt(z));
+				z++;
+				}
+				System.out.println("=====================================================================");
+				}
+				for(int k = 0 ; k<subjual.size(); k++){
+				total += Integer.parseInt(subjual.elementAt(k).toString());
+				}
+				System.out.println("Total Omset : "+total);
+				System.out.println();
+			
+			break;
+			case 3 :
+			break;
+			default:break;
+			}
+		}while(pil<3);
+	}
+}
