@@ -1,0 +1,38 @@
+public class user
+{
+	private String uname;
+	private String pass;
+	
+	public user(String uname,String pass)
+	{
+		this.uname=uname;
+		this.pass=pass;
+	}
+	public String getuname()
+	{
+		return uname;
+	}
+	public String getpass()
+	{
+		String _pass="";
+		for(int i=0;i<pass.length();i++)
+			_pass=_pass+(char)((int)pass.charAt(i));
+		return _pass;
+	}
+	
+	public void setuname (String usname)
+	{
+		this.uname = usname;
+	}
+	public void setpass (String passw)
+	{
+		this.pass = passw;
+	}
+	
+	
+	public boolean cekpass (String usname,String passw)
+	{
+		return (usname.equalsIgnoreCase(uname)&&(passw.equalsIgnoreCase(pass)));
+	}
+
+}
