@@ -1,0 +1,111 @@
+import java.util.*;
+public class cari
+{public static Scanner k = new Scanner(System.in);
+
+	public static final Vector<String> novelkode = new Vector<String>(
+			Arrays.asList(dbnovel.kodenovel));
+	public static final Vector<String> novelnama = new Vector<String>(
+			Arrays.asList(dbnovel.namanovel));
+	public static final Vector<String> novelharga = new Vector<String>(
+			Arrays.asList(dbnovel.harganovel));
+
+
+public static void carinovel() 
+	{
+	
+		int pilih = 0;
+		
+		do
+		{
+			System.out.println();
+			System.out.println("*=======================*");
+			System.out.println("\t* Cari Data Novel *");
+			System.out.println("*=======================*");
+			System.out.println();
+			System.out.println("1. Cari kode novel");
+			System.out.println("2. Cari judul novel");
+			System.out.println("3. cari harga novel");
+			System.out.println("4. Keluar");
+			System.out.print("Masukkan Pilihan Anda (1-4) : ");
+			pilih = k.nextInt();
+			System.out.println();
+			switch(pilih)
+			{
+				case 1 : 
+				int angka=0;
+					System.out.print("Masukan kode novel: ");
+					String kodecar=k.next();
+					System.out.println("| kode | judul novel | Harga");
+					for(int i =0;i<novelkode.length;i++){
+					if (novelkode.equalsIgnoreCase(kodecar))
+						{					
+							System.out.println("|"+novelkode+" | "+novelnama+" | "+novelharga);
+							angka=1;
+						}else
+						{
+						}
+						}
+						if(angka==1)
+						{
+						}
+						else
+						{ 
+							System.out.println("Data Tidak Ada ");
+						}
+				break;
+				
+				case 2 : 
+					int angka=0;
+					System.out.print("Masukan judul novel: ");
+					String judul=k.next();
+					System.out.println("| kode | judul novel | Harga");
+					for(int i =0;i<novelnama.length;i++){
+						if(novelnama.toLowerCase().contains(judul))
+						{
+						System.out.println("|"+novelkode+" | "+novelnama+" | "+novelharga);
+						angka=1;
+						}else
+						{
+						}
+						}
+						if(angka==1)
+						{
+						}else
+						{ 
+							System.out.println("Data Tidak Ada ");
+						}
+				break;
+				
+				case 3 : 
+				int angka=0;
+					System.out.print("Masukan Harga: ");
+					String harga=k.next();
+					System.out.println("| kode | judul novel | Harga");
+					for(int i =0;i<novelharga.length;i++){
+						if(novelharga.equalsIgnoreCase(harga))
+						{
+						System.out.println("|"+novelkode+" | "+novelnama+" | "+novelharga);
+						angka=1;
+						}else
+						{
+						}
+						}
+						if(angka==1)
+						{
+						}else
+						{ 
+							System.out.println("Data Tidak Ada ");
+						}
+				break;
+				
+				default:break;
+			}
+		}while(pilih < 4);
+	}
+	//pencarian melalui kode
+	
+	//pencarian berdasarkan judul
+	
+	//pencarian berdasarkan harga
+	
+	}
